@@ -1,14 +1,16 @@
 Description: CD12352 - Infrastructure as Code Project - Udagram
 
 Parameters:
-  # Add your parameters here
+  ProjectName:
+    Type: String
+    Description: Project name for the resources
 
 Resources:
   # Add your resources here
   # We include a portion of the LaunchTemplate resource so you can use the UserData.
   WebAppLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
-    Properties: 
+    Properties:
       LaunchTemplateData:
         UserData:
           Fn::Base64: |
