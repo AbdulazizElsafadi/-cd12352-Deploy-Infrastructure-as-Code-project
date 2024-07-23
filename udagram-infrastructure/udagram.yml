@@ -5,7 +5,7 @@ Parameters:
     Type: String
     Description: Project name for the resources
 
-  AWS_Account_ID:
+  AccountId:
     Type: String
     Description: AWS Account ID
 
@@ -44,6 +44,8 @@ Resources:
             sudo apt-get update -y
             sudo apt-get install nginx -y
             sudo service nginx start
+            echo "<html><head><title>Udacity DevOps ND</title></head><body><h1>It works! Udagram, Udacity</h1></body></html>" > index.html
+            | sudo tee /var/www/html/index.html
         ImageId: ami-04a81a99f5ec58529 # Ubuntu 22.04
         SecurityGroupIds:
           - !Ref WebServerSecGroup
@@ -153,7 +155,7 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub "${ProjectName}-${AWS_Account_ID}-bucket"
+      BucketName: !Sub "udagram-${AccountId}-bucket"
       AccessControl: Private
       VersioningConfiguration:
         Status: Enabled
