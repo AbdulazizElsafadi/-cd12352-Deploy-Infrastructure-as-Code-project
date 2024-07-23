@@ -33,6 +33,7 @@ then
         --stack-name $STACK_NAME \
         --template-file $TEMPLATE_FILE_NAME \
         --parameter-overrides file://$PARAMETERS_FILE_NAME \
+        --capabilities CAPABILITY_NAMED_IAM \
         --region=$REGION
 fi
 if [ $EXECUTION_MODE == "delete" ]
@@ -47,6 +48,7 @@ then
         --stack-name $STACK_NAME \
         --template-file $TEMPLATE_FILE_NAME \
         --parameter-overrides file://$PARAMETERS_FILE_NAME \
+        --capabilities CAPABILITY_NAMED_IAM \
         --no-execute-changeset \
         --region=$REGION 
 fi
