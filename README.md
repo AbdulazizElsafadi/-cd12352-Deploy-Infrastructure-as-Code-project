@@ -39,3 +39,9 @@ UdagramNetwork \
 us-east-1 \
 UdagramResources
 ```
+
+<!-- Add URL of the DNS Name -->
+
+## URL of the working application:
+
+http://Udagra-WebAp-Ufl7cmIZ1SVr-742751892.us-east-1.elb.amazonaws.com
