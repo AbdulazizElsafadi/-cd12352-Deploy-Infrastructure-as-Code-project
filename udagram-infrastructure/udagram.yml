@@ -41,23 +41,11 @@ Resources:
         UserData:
           Fn::Base64: |
             #!/bin/bash
-
-            #! Update and install necessary packages
-            sudo apt-get update -y
-            sudo apt-get install -y nginx awscli
-
-            #! Create index.html file
-            echo "<html><head><title>Udacity DevOps ND</title></head><body><h1>It works! Udagram, Udacity</h1></body></html>" > /home/ubuntu/index.html
-
-            #! Upload the created index.html to the S3 bucket
-            aws s3 cp /home/ubuntu/index.html s3://udagram-091020206356-bucket/index.html
-
-            #! Replace the default Nginx index.html with the new file
-            sudo mv /home/ubuntu/index.html /var/www/html/index.html
-
-            #! Start Nginx service
-            sudo service nginx start
-
+            apt-get update -y
+            apt-get install apache2 -y
+            systemctl start apache2.service
+            cd /var/www/html
+            echo "it works! Udagram, Udacity" > index.html
         ImageId: ami-04a81a99f5ec58529 # Ubuntu 22.04
         SecurityGroupIds:
           - !Ref WebServerSecGroup
